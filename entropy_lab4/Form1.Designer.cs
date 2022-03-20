@@ -43,13 +43,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.EnoughBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.digramsData = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EnsembleData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digramsData)).BeginInit();
             this.SuspendLayout();
             // 
             // ClearButton
             // 
             this.ClearButton.Location = new System.Drawing.Point(434, 109);
-            this.ClearButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(6);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(146, 33);
             this.ClearButton.TabIndex = 0;
@@ -60,7 +63,7 @@
             // InputBox
             // 
             this.InputBox.Location = new System.Drawing.Point(400, 61);
-            this.InputBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.InputBox.Margin = new System.Windows.Forms.Padding(6);
             this.InputBox.Name = "InputBox";
             this.InputBox.Size = new System.Drawing.Size(180, 33);
             this.InputBox.TabIndex = 1;
@@ -133,7 +136,7 @@
             // 
             // EntropyBox
             // 
-            this.EntropyBox.Location = new System.Drawing.Point(669, 210);
+            this.EntropyBox.Location = new System.Drawing.Point(694, 169);
             this.EntropyBox.Margin = new System.Windows.Forms.Padding(6);
             this.EntropyBox.Name = "EntropyBox";
             this.EntropyBox.ReadOnly = true;
@@ -143,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(429, 210);
+            this.label5.Location = new System.Drawing.Point(454, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(231, 25);
             this.label5.TabIndex = 9;
@@ -151,7 +154,7 @@
             // 
             // MaxEntropyBox
             // 
-            this.MaxEntropyBox.Location = new System.Drawing.Point(669, 249);
+            this.MaxEntropyBox.Location = new System.Drawing.Point(694, 208);
             this.MaxEntropyBox.Margin = new System.Windows.Forms.Padding(6);
             this.MaxEntropyBox.Name = "MaxEntropyBox";
             this.MaxEntropyBox.ReadOnly = true;
@@ -161,7 +164,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(406, 252);
+            this.label6.Location = new System.Drawing.Point(431, 211);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(254, 25);
             this.label6.TabIndex = 11;
@@ -169,7 +172,7 @@
             // 
             // EnoughBox
             // 
-            this.EnoughBox.Location = new System.Drawing.Point(669, 287);
+            this.EnoughBox.Location = new System.Drawing.Point(694, 246);
             this.EnoughBox.Margin = new System.Windows.Forms.Padding(6);
             this.EnoughBox.Name = "EnoughBox";
             this.EnoughBox.ReadOnly = true;
@@ -179,17 +182,36 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(376, 290);
+            this.label7.Location = new System.Drawing.Point(401, 249);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(284, 25);
             this.label7.TabIndex = 13;
             this.label7.Text = "Недогруженность алфавита:";
+            // 
+            // digramsData
+            // 
+            this.digramsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.digramsData.Location = new System.Drawing.Point(635, 316);
+            this.digramsData.Name = "digramsData";
+            this.digramsData.Size = new System.Drawing.Size(234, 250);
+            this.digramsData.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(670, 288);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(172, 25);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Список биграмм";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 579);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.digramsData);
             this.Controls.Add(this.EnoughBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.MaxEntropyBox);
@@ -206,12 +228,13 @@
             this.Controls.Add(this.InputBox);
             this.Controls.Add(this.ClearButton);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Безусловная энтропия";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EnsembleData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digramsData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +257,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox EnoughBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView digramsData;
+        private System.Windows.Forms.Label label8;
     }
 }
 
