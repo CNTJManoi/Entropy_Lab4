@@ -59,12 +59,21 @@ namespace entropy_lab4
         private void ClearButton_Click(object sender, EventArgs e)
         {
             InputBox.Clear();
+            GeneralClear();
+        }
+        private void GeneralClear()
+        {
             EnsembleData.Rows.Clear();
             PowerBox.Clear();
+            EntropyBox.Clear();
+            MaxEntropyBox.Clear();
+            EnoughBox.Clear();
+            digramsData.Rows.Clear();
+            H1Box.Clear();
         }
-
         private void RunButton_Click(object sender, EventArgs e)
         {
+            GeneralClear();
             string message = InputBox.Text;
             string messageNotDuplicate = new string(message.Distinct().ToArray());
             string sortMessage = string.Concat(messageNotDuplicate.OrderBy(x => x).ToList());
