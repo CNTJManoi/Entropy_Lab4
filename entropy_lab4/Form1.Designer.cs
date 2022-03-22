@@ -45,6 +45,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.digramsData = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
+            this.H1Box = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EnsembleData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.digramsData)).BeginInit();
             this.SuspendLayout();
@@ -190,9 +192,14 @@
             // 
             // digramsData
             // 
+            this.digramsData.AllowUserToAddRows = false;
+            this.digramsData.AllowUserToDeleteRows = false;
+            this.digramsData.AllowUserToResizeColumns = false;
+            this.digramsData.AllowUserToResizeRows = false;
             this.digramsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.digramsData.Location = new System.Drawing.Point(635, 316);
             this.digramsData.Name = "digramsData";
+            this.digramsData.RowHeadersVisible = false;
             this.digramsData.Size = new System.Drawing.Size(234, 250);
             this.digramsData.TabIndex = 15;
             // 
@@ -205,11 +212,31 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Список биграмм";
             // 
+            // H1Box
+            // 
+            this.H1Box.Location = new System.Drawing.Point(434, 369);
+            this.H1Box.Margin = new System.Windows.Forms.Padding(6);
+            this.H1Box.Name = "H1Box";
+            this.H1Box.ReadOnly = true;
+            this.H1Box.Size = new System.Drawing.Size(139, 33);
+            this.H1Box.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(357, 338);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(272, 25);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Энтропия первого порядка";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 579);
+            this.Controls.Add(this.H1Box);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.digramsData);
             this.Controls.Add(this.EnoughBox);
@@ -259,6 +286,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView digramsData;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox H1Box;
+        private System.Windows.Forms.Label label9;
     }
 }
 

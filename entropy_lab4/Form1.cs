@@ -82,25 +82,37 @@ namespace entropy_lab4
             MaxEntropyBox.Text = Math.Round(Math.Log(messageNotDuplicate.Length, 2), 3).ToString();
             EnoughBox.Text = Math.Round((float.Parse(MaxEntropyBox.Text) - float.Parse(EntropyBox.Text)), 3).ToString();
             List<string> digrams = new List<string>();
-            for (int i = 0; i < message.Length - 1; i++)
+            for (int i = 0; i < messageNotDuplicate.Length; i++)
             {
-                digrams.Add(string.Format("{0}{1}", message[i], message[i + 1]));
-            }
-            digrams = digrams.Distinct().ToList();
-            List<int> countDigrams = new List<int>();
-            foreach (var digram in digrams)
-            {
-                int count = 0;
-                for (int i = 0; i < message.Length - 1; i++)
+                for (int j = 0; j < messageNotDuplicate.Length; j++)
                 {
-                    string sub = message[i] + "" + message[i+1];
-                    if(sub == digram)
-                    {
-                        count++;
-                    }
+                    digrams.Add(messageNotDuplicate[i] + "" + messageNotDuplicate[j]);
                 }
-                digramsData.Rows.Add(digram, count);
             }
+            Queue<float> pDigram = new Queue<float>();
+            for (int i = 0; i < digrams.Count; i++)
+            {
+                int countDigram = 0;
+                for (int j = 0; j < message.Length - 1; j++)
+                {
+                    if (message[j] + "" + message[j + 1] == digrams[i]) countDigram++;
+                }
+                float p = (float)countDigram / (message.Length - 1);
+                digramsData.Rows.Add(digrams[i], p);
+                pDigram.Enqueue(p);
+            }
+            float H1 = 0;
+            for (int i = 0; i < messageNotDuplicate.Length; i++)
+            {
+                float sum = 0;
+                for (int j = 0; j < messageNotDuplicate.Length; j++)
+                {
+                    float p = pDigram.Dequeue();
+                    if (p != 0) sum += p * (float)Math.Log(p, 2);
+                }
+                H1 += sum * float.Parse(EnsembleData.Rows[i].Cells[1].Value.ToString());
+            }
+            H1Box.Text = (H1 * -1).ToString();
         }
     }
 }
